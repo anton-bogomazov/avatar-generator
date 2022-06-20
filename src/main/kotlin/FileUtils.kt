@@ -20,7 +20,7 @@ fun renderImage(bitmap: Bitmap32) {
             Transparency.OPAQUE,
             DataBuffer.TYPE_BYTE), raster, true, null)
 
-    ImageIO.write(image, "png", File("$BASE_PATH/output/output_${outputFileIndex++}.png"))
+    ImageIO.write(image, "png", File("$OUTPUT_PATH/output_${outputFileIndex++}.png"))
 }
 
 fun loadImage(path: String): Raster = ImageIO.read(File(path)).data
