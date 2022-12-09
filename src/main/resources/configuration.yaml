@@ -1,0 +1,6 @@
+plugins:
+  input:
+    name: cli
+  output:
+    name: file_export
+    outputPath: "/Users/antonbogomazov/IdeaProjects/tradeshift/nft-collection-generator/samples/output"
