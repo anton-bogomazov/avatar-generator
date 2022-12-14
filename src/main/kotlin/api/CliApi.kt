@@ -31,7 +31,7 @@ class CliApi {
             val traitName = TraitName(readln())
 
             println("> List of files (only names, w/o extension): ")
-            val files = readln().split(' ').map { TraitVariantFile(basePath, FileName(it)) }
+            val files = readln().split(' ').map { TraitVariantFile(basePath, FileName.from(it)) }
 
             // todo run import async here
             traits.add(FileTraitImportProcessor(traitName, files).process())

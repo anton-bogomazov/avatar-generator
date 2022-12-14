@@ -12,7 +12,7 @@ class FileOutputPlugin(
 
     // todo create path if not existed
     override fun writeGeneratedImage(image: GeneratedImage) {
-        val file = OutputFile(path, FileName(image.name.value))
+        val file = OutputFile(path, FileName.from(image.name))
         ImageIO.write(image.render(), file.format.value, file.toFile())
     }
 
