@@ -11,6 +11,6 @@ class OutputFile(
     val format: FileFormat = FileFormat.PNG
 ) {
 
-    fun toFile(): File = File("${path.value}/${fileName.value}.${format.value}")
+    fun toFile(): File = File("${path.value}/${fileName}.${format.value}")
 
 }

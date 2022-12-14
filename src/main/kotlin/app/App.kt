@@ -9,8 +9,8 @@ import output.OutputPlugin
 import processor.domain.Path
 
 // fixme ?
-var HEIGHT: Int = 0
-var WIDTH: Int = 0
+var HEIGHT: Int = 12
+var WIDTH: Int = 12
 
 class App private constructor(
     private val api: CliApi,

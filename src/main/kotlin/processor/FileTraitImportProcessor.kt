@@ -1,9 +1,6 @@
 package processor
 
-import generator.domain.Trait
-import generator.domain.TraitName
-import generator.domain.TraitVariant
-import generator.domain.TraitVariantBitmap
+import generator.domain.*
 import processor.domain.TraitVariantFile
 import javax.imageio.ImageIO
 
@@ -16,8 +13,7 @@ class FileTraitImportProcessor(
         Trait(traitName, inputData.map { file ->
             TraitVariant(
                 file.variantName(),
-                TraitVariantBitmap(createBitmap(ImageIO.read(file.toFile()).data))
-            )
+                TraitVariantBitmap.from(ImageIO.read(file.toFile()).data))
         })
 
 }
