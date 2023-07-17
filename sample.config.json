@@ -1,0 +1,14 @@
+{
+  "inputPath": "input",
+  "outputPath": "output",
+  "traits": [
+    {
+      "name": "first",
+      "variants": ["var"]
+    },
+    {
+      "name": "second",
+      "variants": [ "var1", "var2" ]
+    }
+  ]
+}

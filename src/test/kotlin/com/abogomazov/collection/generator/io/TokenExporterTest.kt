@@ -10,7 +10,7 @@ import kotlin.io.path.Path
 class TokenExporterTest : StringSpec({
     val outputPath = "output"
 
-    beforeTest {
+    afterTest {
         Files.deleteIfExists(Path("$outputPath/trait_variant.png"))
         Files.deleteIfExists(Path(outputPath))
     }
