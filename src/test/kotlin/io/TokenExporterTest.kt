@@ -6,6 +6,7 @@ import domain.GeneratedImageName
 import domain.TraitName
 import domain.VariantName
 import image
+import imageName
 import io.kotest.core.spec.style.StringSpec
 import io.kotest.matchers.shouldBe
 import java.nio.file.Files
@@ -30,6 +31,3 @@ class TokenExporterTest : StringSpec({
     }
 
 })
-
-fun imageName(traitName: String, variantName: String) =
-    GeneratedImageName.of(TraitName(traitName), VariantName(variantName))
