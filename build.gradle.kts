@@ -1,33 +1,34 @@
-import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
-
 plugins {
     kotlin("jvm") version "1.8.21"
     kotlin("plugin.serialization") version "1.8.21"
 }
 
-group = "me.antonbogomazov"
+group = "com.abogomazov"
 version = "1.0-SNAPSHOT"
 
 repositories {
     mavenCentral()
 }
 
-val kotestVersion = "5.5.4"
-val mockkVersion = "1.13.3"
+object Libs {
+    private val kotest_version = "5.5.4"
+    private val serialization_version = "1.5.1"
+    private val korim_version = "4.0.9"
+
+    val serialization = "org.jetbrains.kotlinx:kotlinx-serialization-json:$serialization_version"
+    val kotest = "io.kotest:kotest-runner-junit5:$kotest_version"
+    val kotest_property = "io.kotest:kotest-property:$kotest_version"
+    val korim = "com.soywiz.korlibs.korim:korim:$korim_version"
+}
 
 dependencies {
-    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.5.1")
-    implementation("com.soywiz.korlibs.korim:korim:2.7.0")
+    implementation(Libs.serialization)
+    implementation(Libs.korim)
 
-    testImplementation("io.kotest:kotest-runner-junit5:$kotestVersion")
-    testImplementation("io.kotest:kotest-property:$kotestVersion")
-    testImplementation("io.mockk:mockk:$mockkVersion")
+    testImplementation(Libs.kotest)
+    testImplementation(Libs.kotest_property)
 }
 
 tasks.test {
     useJUnitPlatform()
-}
-
-tasks.withType<KotlinCompile>() {
-    kotlinOptions.jvmTarget = "1.8"
 }
