@@ -35,3 +35,8 @@ fun BufferedImage.compareImages(other: BufferedImage): Boolean {
 
 fun imageName(traitName: String, variantName: String) =
     GeneratedImageName.of(TraitName(traitName), VariantName(variantName))
+
+fun generatedImage(
+    name: GeneratedImageName = imageName("trait", "variant"),
+    bufImage: BufferedImage
+) = GeneratedImage.of(name, Bitmap.from(bufImage))
