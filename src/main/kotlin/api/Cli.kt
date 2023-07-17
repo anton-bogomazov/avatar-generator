@@ -1,27 +1,21 @@
 package api
 
-import app.HEIGHT
-import app.WIDTH
-import generator.domain.Trait
-import generator.domain.TraitName
-import processor.FileTraitImportProcessor
-import processor.domain.FileName
-import processor.domain.Path
-import processor.domain.TraitVariantFile
+import domain.Trait
+import domain.TraitName
+import io.TraitSourcesImporter
 
-// todo implement state machine
-class CliApi {
 
+object Cli {
+
+    // TODO use json configuration except asking user
     fun read(): List<Trait> {
         val traits = mutableListOf<Trait>()
 
         while (true) {
             println("> Base path: ")
-            val basePath = Path(readln())
-            println("> height width: ")
+            val basePath = readln()
+            println("> height <space> width: ")
             val (height, width) = readln().split(' ').map { it.toInt() }
-            HEIGHT = height
-            WIDTH = width
 
             println("> Import new trait? (y/n) ")
             val control = readln().lowercase()
@@ -31,10 +25,9 @@ class CliApi {
             val traitName = TraitName(readln())
 
             println("> List of files (only names, w/o extension): ")
-            val files = readln().split(' ').map { TraitVariantFile(basePath, FileName.from(it)) }
+            val files = readln().split(' ')
 
-            // todo run import async here
-            traits.add(FileTraitImportProcessor(traitName, files).process())
+            traits.add(TraitSourcesImporter(traitName, basePath, files).import())
         }
 
         if (traits.isEmpty()) return listOf()
