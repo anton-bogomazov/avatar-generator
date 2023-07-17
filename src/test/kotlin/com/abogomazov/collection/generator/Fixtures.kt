@@ -1,6 +1,9 @@
-import adapter.Bitmap
+package com.abogomazov.collection.generator
+
+import com.abogomazov.collection.generator.adapter.Bitmap
+import com.abogomazov.collection.generator.domain.*
+import com.abogomazov.collection.generator.io.TraitConfig
 import com.soywiz.korim.color.toRgba
-import domain.*
 import java.awt.Color
 import java.awt.image.BufferedImage
 
@@ -16,23 +19,6 @@ fun image(position: Pair<Int, Int> = 0 to 0, color: Color = Color.black): Buffer
     return result
 }
 
-fun BufferedImage.compareImages(other: BufferedImage): Boolean {
-    if (this.width != other.width || this.height != other.height) {
-        return false
-    }
-    val width = this.width
-    val height = this.height
-
-    for (y in 0 until height) {
-        for (x in 0 until width) {
-            if (this.getRGB(x, y) != other.getRGB(x, y)) {
-                return false
-            }
-        }
-    }
-    return true
-}
-
 fun imageName(traitName: String, variantName: String) =
     GeneratedImageName.of(TraitName(traitName), VariantName(variantName))
 
@@ -40,3 +26,8 @@ fun generatedImage(
     name: GeneratedImageName = imageName("trait", "variant"),
     bufImage: BufferedImage
 ) = GeneratedImage.of(name, Bitmap.from(bufImage))
+
+fun traitConfig(
+    vararg traitNames: String,
+    variants: List<String> = listOf("variant1", "variant2")
+) = traitNames.map { TraitConfig(it, variants) }

@@ -1,14 +1,14 @@
 {
-  "inputPath": "input",
-  "outputPath": "output",
+  "inputPath": "/Users/antonbogomazov/Development/personal/nft-collection-generator/input",
+  "outputPath": "/Users/antonbogomazov/Development/personal/nft-collection-generator/output",
   "traits": [
     {
-      "name": "head",
-      "variants": ["small", "big"]
+      "name": "char",
+      "variants": ["sman"]
     },
     {
-      "name": "body",
-      "variants": [ "red", "white" ]
+      "name": "decoration",
+      "variants": [ "drops", "cracks" ]
     }
   ]
 }

@@ -1,6 +1,6 @@
-package domain
+package com.abogomazov.collection.generator.domain
 
-import imageName
+import com.abogomazov.collection.generator.imageName
 import io.kotest.core.spec.style.StringSpec
 import io.kotest.matchers.shouldBe
 

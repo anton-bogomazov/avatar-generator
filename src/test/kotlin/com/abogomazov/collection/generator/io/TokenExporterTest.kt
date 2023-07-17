@@ -1,7 +1,7 @@
-package io
+package com.abogomazov.collection.generator.io
 
-import generatedImage
-import image
+import com.abogomazov.collection.generator.generatedImage
+import com.abogomazov.collection.generator.image
 import io.kotest.core.spec.style.StringSpec
 import io.kotest.matchers.shouldBe
 import java.nio.file.Files

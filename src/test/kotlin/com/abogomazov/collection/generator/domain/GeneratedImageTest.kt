@@ -1,11 +1,11 @@
-package domain
+package com.abogomazov.collection.generator.domain
 
-import generatedImage
-import image
+import com.abogomazov.collection.generator.generatedImage
+import com.abogomazov.collection.generator.image
 import io.kotest.core.spec.style.StringSpec
 import io.kotest.matchers.shouldBe
-import trait
-import variants
+import com.abogomazov.collection.generator.trait
+import com.abogomazov.collection.generator.variants
 
 class GeneratedImageTest : StringSpec({
 

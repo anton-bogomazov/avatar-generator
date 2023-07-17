@@ -1,8 +1,10 @@
-import app.App
-import app.CollectionGenerator
-import io.Config
-import io.TokenExporter
-import io.TraitSourcesImporter
+package com.abogomazov.collection.generator
+
+import com.abogomazov.collection.generator.app.App
+import com.abogomazov.collection.generator.app.CollectionGenerator
+import com.abogomazov.collection.generator.io.Config
+import com.abogomazov.collection.generator.io.TokenExporter
+import com.abogomazov.collection.generator.io.TraitSourcesImporter
 import kotlinx.serialization.json.Json
 import java.io.File
 

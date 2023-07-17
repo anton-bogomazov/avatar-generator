@@ -1,4 +1,4 @@
-package io
+package com.abogomazov.collection.generator.io
 
 import kotlinx.serialization.Serializable
 
@@ -6,11 +6,11 @@ import kotlinx.serialization.Serializable
 data class Config(
     val inputPath: String,
     val outputPath: String,
-    val traits: List<Trait>,
+    val traits: List<TraitConfig>,
 )
 
 @Serializable
-data class Trait(
+data class TraitConfig(
     val name: String,
     val variants: List<String>
 )

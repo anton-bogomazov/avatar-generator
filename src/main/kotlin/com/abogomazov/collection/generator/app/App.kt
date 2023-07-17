@@ -1,10 +1,7 @@
-package app
+package com.abogomazov.collection.generator.app
 
-import io.Config
-import io.TokenExporter
-import io.TraitSourcesImporter
-import kotlinx.serialization.json.Json
-import java.io.File
+import com.abogomazov.collection.generator.io.TokenExporter
+import com.abogomazov.collection.generator.io.TraitSourcesImporter
 
 
 class App(
@@ -15,7 +12,7 @@ class App(
 
     fun run() {
         val traits = importer.import()
-        val images = generator.generate(traits)
+        val images = CollectionGenerator.generate(traits)
         images.forEach {
             output.writeGeneratedImage(it)
         }

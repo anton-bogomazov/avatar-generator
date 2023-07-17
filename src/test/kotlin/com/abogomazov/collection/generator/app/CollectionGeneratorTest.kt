@@ -1,4 +1,7 @@
-import app.CollectionGenerator
+package com.abogomazov.collection.generator.app
+
+import com.abogomazov.collection.generator.trait
+import com.abogomazov.collection.generator.variants
 import io.kotest.assertions.assertSoftly
 import io.kotest.core.spec.style.StringSpec
 import io.kotest.matchers.collections.shouldBeEmpty

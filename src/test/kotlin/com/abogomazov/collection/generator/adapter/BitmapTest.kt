@@ -1,7 +1,7 @@
-package adapter
+package com.abogomazov.collection.generator.adapter
 
-import compareImages
-import image
+import com.abogomazov.collection.generator.compareImages
+import com.abogomazov.collection.generator.image
 import io.kotest.core.spec.style.StringSpec
 import io.kotest.matchers.shouldBe
 import io.kotest.matchers.shouldNotBe

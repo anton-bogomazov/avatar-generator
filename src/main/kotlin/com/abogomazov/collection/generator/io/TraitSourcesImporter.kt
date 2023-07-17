@@ -1,16 +1,16 @@
-package io
+package com.abogomazov.collection.generator.io
 
-import adapter.Bitmap
-import domain.Trait
-import domain.TraitName
-import domain.TraitVariant
-import domain.VariantName
+import com.abogomazov.collection.generator.adapter.Bitmap
+import com.abogomazov.collection.generator.domain.Trait
+import com.abogomazov.collection.generator.domain.TraitName
+import com.abogomazov.collection.generator.domain.TraitVariant
+import com.abogomazov.collection.generator.domain.VariantName
 import java.io.File
 import javax.imageio.ImageIO
 
 
 class TraitSourcesImporter(
-    private val traits: List<io.Trait>,
+    private val traits: List<com.abogomazov.collection.generator.io.TraitConfig>,
     private val path: String,
     private val format: String = "png"
 ) {

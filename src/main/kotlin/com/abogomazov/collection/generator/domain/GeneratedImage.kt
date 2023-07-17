@@ -1,6 +1,6 @@
-package domain
+package com.abogomazov.collection.generator.domain
 
-import adapter.Bitmap
+import com.abogomazov.collection.generator.adapter.Bitmap
 
 class GeneratedImage private constructor(
     val name: GeneratedImageName,

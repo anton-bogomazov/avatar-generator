@@ -1,4 +1,4 @@
-package adapter
+package com.abogomazov.collection.generator.adapter
 
 import com.soywiz.korim.awt.toAwt
 import com.soywiz.korim.awt.toBMP32
@@ -18,8 +18,6 @@ class Bitmap private constructor(private val value: Bitmap32) {
 
         return Bitmap(newImage)
     }
-
-    fun getPixel(i: Int, j: Int) = value[i, j]
 
     fun render() = this.value.toAwt()
 

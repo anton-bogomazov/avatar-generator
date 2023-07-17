@@ -1,8 +1,8 @@
-package app
+package com.abogomazov.collection.generator.app
 
-import domain.GeneratedImage
-import domain.GeneratedImageName
-import domain.Trait
+import com.abogomazov.collection.generator.domain.GeneratedImage
+import com.abogomazov.collection.generator.domain.GeneratedImageName
+import com.abogomazov.collection.generator.domain.Trait
 
 object CollectionGenerator {
 

@@ -1,6 +1,6 @@
-package io
+package com.abogomazov.collection.generator.io
 
-import domain.GeneratedImage
+import com.abogomazov.collection.generator.domain.GeneratedImage
 import java.io.File
 import java.nio.file.Files
 import javax.imageio.ImageIO
