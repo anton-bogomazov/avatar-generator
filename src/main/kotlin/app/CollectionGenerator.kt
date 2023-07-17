@@ -1,3 +1,5 @@
+package app
+
 import domain.GeneratedImage
 import domain.GeneratedImageName
 import domain.Trait

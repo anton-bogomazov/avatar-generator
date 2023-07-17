@@ -10,13 +10,17 @@ import javax.imageio.ImageIO
 
 
 class TraitSourcesImporter(
-    private val traitName: TraitName,
+    private val traits: List<io.Trait>,
     private val path: String,
-    private val variantFiles: List<String>,
     private val format: String = "png"
 ) {
 
     fun import() =
+        traits.map {
+            importTrait(TraitName(it.name), it.variants)
+        }
+
+    private fun importTrait(traitName: TraitName, variantFiles: List<String>) =
         Trait(traitName, variantFiles.map { filename ->
             TraitVariant(
                 VariantName(filename),

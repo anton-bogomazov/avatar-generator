@@ -1,0 +1,14 @@
+{
+  "inputPath": "input",
+  "outputPath": "output",
+  "traits": [
+    {
+      "name": "head",
+      "variants": ["small", "big"]
+    },
+    {
+      "name": "body",
+      "variants": [ "red", "white" ]
+    }
+  ]
+}
