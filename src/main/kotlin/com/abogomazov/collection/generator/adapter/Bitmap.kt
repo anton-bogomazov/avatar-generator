@@ -1,8 +1,8 @@
 package com.abogomazov.collection.generator.adapter
 
-import com.soywiz.korim.awt.toAwt
-import com.soywiz.korim.awt.toBMP32
-import com.soywiz.korim.bitmap.Bitmap32
+import korlibs.image.awt.toAwt
+import korlibs.image.awt.toBMP32
+import korlibs.image.bitmap.Bitmap32
 import java.awt.image.*
 
 

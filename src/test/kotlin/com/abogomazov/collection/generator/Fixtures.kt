@@ -3,7 +3,7 @@ package com.abogomazov.collection.generator
 import com.abogomazov.collection.generator.adapter.Bitmap
 import com.abogomazov.collection.generator.domain.*
 import com.abogomazov.collection.generator.io.TraitConfig
-import com.soywiz.korim.color.toRgba
+import korlibs.image.color.toRgba
 import java.awt.Color
 import java.awt.image.BufferedImage
 
