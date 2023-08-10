@@ -1,8 +1,9 @@
-package com.abogomazov.collection.generator.app
+package com.abogomazov.collection.generator.app.modules
 
 import com.abogomazov.collection.generator.domain.GeneratedImage
 import com.abogomazov.collection.generator.domain.GeneratedImageName
 import com.abogomazov.collection.generator.domain.Trait
+
 
 object CollectionGenerator {
 
@@ -11,7 +12,7 @@ object CollectionGenerator {
 
         val firstTrait = traits.first()
         var images = firstTrait.variants.map { variant ->
-            GeneratedImage.of(GeneratedImageName.of(firstTrait.name, variant.name), variant.image)
+            GeneratedImage(GeneratedImageName.of(firstTrait.name, variant.name), variant.image)
         }
 
         for (trait in (traits - firstTrait)) {

@@ -1,4 +1,4 @@
-package com.abogomazov.collection.generator.app
+package com.abogomazov.collection.generator.app.modules
 
 import com.abogomazov.collection.generator.trait
 import com.abogomazov.collection.generator.variants

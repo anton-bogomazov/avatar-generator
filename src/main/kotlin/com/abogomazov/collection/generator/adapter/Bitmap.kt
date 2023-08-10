@@ -3,7 +3,7 @@ package com.abogomazov.collection.generator.adapter
 import korlibs.image.awt.toAwt
 import korlibs.image.awt.toBMP32
 import korlibs.image.bitmap.Bitmap32
-import java.awt.image.*
+import java.awt.image.BufferedImage
 
 
 class Bitmap private constructor(private val value: Bitmap32) {

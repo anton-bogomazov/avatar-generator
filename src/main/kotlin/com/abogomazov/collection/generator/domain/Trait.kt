@@ -2,6 +2,7 @@ package com.abogomazov.collection.generator.domain
 
 import com.abogomazov.collection.generator.adapter.Bitmap
 
+
 data class Trait(
     val name: TraitName,
     val variants: List<TraitVariant>

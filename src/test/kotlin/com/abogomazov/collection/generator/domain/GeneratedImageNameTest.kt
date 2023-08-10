@@ -6,13 +6,14 @@ import io.kotest.matchers.shouldBe
 
 class GeneratedImageNameTest : StringSpec({
 
-    "of - should return instance with value generated from trait/variant names separated by underscore" {
+    "image name is trait and variant names separated by underscore" {
         imageName("TRAIT", "VARIANT").toString() shouldBe "TRAIT_VARIANT"
     }
 
-    "traits are separated by stash" {
+    "trait_variant pairs are separated by stash" {
         imageName("TRAIT1", "VARIANT1")
-            .append(TraitName("TRAIT2"), VariantName("VARIANT2")).toString() shouldBe "TRAIT1_VARIANT1-TRAIT2_VARIANT2"
+            .append(TraitName("TRAIT2"), VariantName("VARIANT2")).toString() shouldBe
+                "TRAIT1_VARIANT1-TRAIT2_VARIANT2"
     }
 
 })
