@@ -32,4 +32,12 @@ class TraitSourcesImporterTest : StringSpec({
         }
     }
 
+    "skip traits without variants" {
+        val sut = TraitSourcesImporter(traitImportInfo("trait1", "trait2", variants = emptyList()), io)
+
+        val result = sut.import()
+
+        result shouldHaveSize 0
+    }
+
 })
