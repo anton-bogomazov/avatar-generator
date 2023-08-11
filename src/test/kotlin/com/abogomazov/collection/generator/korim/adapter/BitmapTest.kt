@@ -1,5 +1,6 @@
-package com.abogomazov.collection.generator.adapter
+package com.abogomazov.collection.generator.korim.adapter
 
+import com.abogomazov.collection.generator.adapter.korim.KorimBitmap
 import com.abogomazov.collection.generator.compareImages
 import com.abogomazov.collection.generator.image
 import io.kotest.core.spec.style.StringSpec
@@ -10,8 +11,8 @@ import java.awt.Color
 class BitmapTest : StringSpec({
 
     "drawing another bitmap do not mutate original one and creates a new" {
-        val original = Bitmap.from(image(0 to 0, Color.black))
-        val bitmapToDraw = Bitmap.from(image(1 to 1, Color.black))
+        val original = KorimBitmap.from(image(0 to 0, Color.black))
+        val bitmapToDraw = KorimBitmap.from(image(1 to 1, Color.black))
 
         val result = original.draw(bitmapToDraw)
 
@@ -21,8 +22,8 @@ class BitmapTest : StringSpec({
 
     "new bitmap overlaps original one if pixel's alpha > 0" {
         val position = 0 to 0
-        val original = Bitmap.from(image(position, Color.black))
-        val bitmapToDraw = Bitmap.from(image(position, Color.red))
+        val original = KorimBitmap.from(image(position, Color.black))
+        val bitmapToDraw = KorimBitmap.from(image(position, Color.red))
 
         val result = original.draw(bitmapToDraw)
 
@@ -32,7 +33,7 @@ class BitmapTest : StringSpec({
     "render bitmap32 value to buffered image" {
         val expected = image(0 to 0, Color.black)
 
-        val sut = Bitmap.from(expected)
+        val sut = KorimBitmap.from(expected)
 
         sut.render().compareImages(expected) shouldBe true
     }

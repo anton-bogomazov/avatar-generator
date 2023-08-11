@@ -1,7 +1,9 @@
-package com.abogomazov.collection.generator.app.io
+package com.abogomazov.collection.generator.adapter.io
 
-import com.abogomazov.collection.generator.app.modules.ImageReader
-import com.abogomazov.collection.generator.app.modules.ImageWriter
+import com.abogomazov.collection.generator.factories.AdapterFactories
+import com.abogomazov.collection.generator.domain.Bitmap
+import com.abogomazov.collection.generator.domain.modules.ImageReader
+import com.abogomazov.collection.generator.domain.modules.ImageWriter
 import com.abogomazov.collection.generator.domain.ImageFormat
 import java.awt.image.BufferedImage
 import java.io.File
@@ -9,6 +11,7 @@ import java.nio.file.Files
 import java.nio.file.Path
 import javax.imageio.ImageIO
 import kotlin.io.path.notExists
+
 
 class IO(
     private val path: Path,
@@ -22,9 +25,9 @@ class IO(
         ImageIO.write(image, format.toString(), File("${path}/$filename.$format"))
     }
 
-    override fun read(filename: String): BufferedImage {
+    override fun read(filename: String): Bitmap {
         val file = File("$path/$filename.$format")
         if (file.toPath().notExists()) error("[IO ERROR] $file is not exists")
-        return ImageIO.read(File("$path/$filename.$format"))
+        return AdapterFactories.createBitmap(ImageIO.read(File("$path/$filename.$format")))
     }
 }

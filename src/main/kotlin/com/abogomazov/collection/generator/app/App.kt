@@ -1,9 +1,10 @@
 package com.abogomazov.collection.generator.app
 
-import com.abogomazov.collection.generator.app.io.IO
-import com.abogomazov.collection.generator.app.modules.CollectionGenerator
-import com.abogomazov.collection.generator.app.modules.TokenExporter
-import com.abogomazov.collection.generator.app.modules.TraitSourcesImporter
+import com.abogomazov.collection.generator.domain.TraitImportInfo
+import com.abogomazov.collection.generator.factories.AdapterFactories
+import com.abogomazov.collection.generator.domain.modules.CollectionGenerator
+import com.abogomazov.collection.generator.domain.modules.TokenExporter
+import com.abogomazov.collection.generator.domain.modules.TraitSourcesImporter
 
 
 class App private constructor(
@@ -13,12 +14,14 @@ class App private constructor(
 ) {
 
     companion object {
-        fun instantiate(config: Config.ValidatedConfig) =
-            App(
-                importer = TraitSourcesImporter(config.traits, IO(config.inputPath)),
+        fun instantiate(config: Config.ValidatedConfig): App {
+            val traits = config.traits.map { TraitImportInfo(it.name, it.variants) }
+            return App(
+                importer = TraitSourcesImporter(traits, AdapterFactories.instantiateReader(config.inputPath)),
                 generator = CollectionGenerator,
-                exporter = TokenExporter(IO(config.outputPath))
+                exporter = TokenExporter(AdapterFactories.instantiateWriter(config.outputPath))
             )
+        }
     }
 
     fun run() {
@@ -29,4 +32,9 @@ class App private constructor(
         }
     }
 
+}
+
+fun main(args: Array<String>) {
+    val config = readConfig(path = args.first()).validated()
+    App.instantiate(config).run()
 }

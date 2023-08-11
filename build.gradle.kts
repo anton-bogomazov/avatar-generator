@@ -16,12 +16,14 @@ object Libs {
     private val serialization_version = "1.5.1"
     private val korim_version = "4.0.9"
     private val mockk_version = "1.13.5"
+    private val archunit_version = "1.1.0"
 
     val serialization = "org.jetbrains.kotlinx:kotlinx-serialization-json:$serialization_version"
     val kotest = "io.kotest:kotest-runner-junit5:$kotest_version"
     val kotest_property = "io.kotest:kotest-property:$kotest_version"
     val korim = "com.soywiz.korlibs.korim:korim:$korim_version"
-    val mockk = "io.mockk:mockk:${mockk_version}"
+    val mockk = "io.mockk:mockk:$mockk_version"
+    val archunit = "com.tngtech.archunit:archunit:$archunit_version"
 }
 
 dependencies {
@@ -31,6 +33,7 @@ dependencies {
     testImplementation(Libs.kotest)
     testImplementation(Libs.kotest_property)
     testImplementation(Libs.mockk)
+    testImplementation(Libs.archunit)
 }
 
 tasks.test {

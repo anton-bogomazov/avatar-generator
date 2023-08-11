@@ -1,7 +1,5 @@
 package com.abogomazov.collection.generator.domain
 
-import com.abogomazov.collection.generator.adapter.Bitmap
-
 
 data class GeneratedImage(
     val name: GeneratedImageName,

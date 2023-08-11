@@ -1,5 +1,6 @@
 package com.abogomazov.collection.generator.app.modules
 
+import com.abogomazov.collection.generator.domain.modules.CollectionGenerator
 import com.abogomazov.collection.generator.trait
 import com.abogomazov.collection.generator.variants
 import io.kotest.assertions.assertSoftly

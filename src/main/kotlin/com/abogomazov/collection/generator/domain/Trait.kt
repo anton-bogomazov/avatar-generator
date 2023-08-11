@@ -1,7 +1,5 @@
 package com.abogomazov.collection.generator.domain
 
-import com.abogomazov.collection.generator.adapter.Bitmap
-
 
 data class Trait(
     val name: TraitName,
@@ -22,3 +20,8 @@ value class TraitName(private val value: String) {
 value class VariantName(private val value: String) {
     override fun toString() = value
 }
+
+data class TraitImportInfo(
+    val traitName: TraitName,
+    val variantNames: List<VariantName>
+)

@@ -1,4 +1,4 @@
-package com.abogomazov.collection.generator.app.modules
+package com.abogomazov.collection.generator.domain.modules
 
 import com.abogomazov.collection.generator.domain.GeneratedImage
 import com.abogomazov.collection.generator.domain.GeneratedImageName
