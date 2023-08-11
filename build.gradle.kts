@@ -10,7 +10,7 @@ group = "com.abogomazov"
 version = "1.0-SNAPSHOT"
 
 application {
-    mainClass.set("com.abogomazov.collection.generator.app.AppKt")
+    mainClass.set("com.abogomazov.avatar.generator.app.AppKt")
 }
 
 repositories {

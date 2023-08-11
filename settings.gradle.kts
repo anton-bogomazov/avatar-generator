@@ -1,1 +1,1 @@
-rootProject.name = "nft-collection-generator"
+rootProject.name = "avatar-generator"
