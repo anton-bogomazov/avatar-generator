@@ -30,12 +30,16 @@ class App private constructor(
     fun run() {
         logger.info { "Instantiation successful. Start importing traits." }
         val traits = importer.import()
-        logger.info { "${traits.size} traits imported with maximum of ${traits.maxBy { it.variants.size }.variants.size} variants." }
+
+        logger.info { "${traits.size} traits imported with maximum of " +
+                "${traits.maxBy { it.variants.size }.variants.size} variants." }
         val generatedImages = generator.generate(traits)
+
         logger.info { "${generatedImages.size} images generated, start saving." }
         generatedImages.forEach {
             exporter.write(it)
         }
+
         logger.info { "Done!" }
     }
 

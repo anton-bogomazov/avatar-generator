@@ -19,7 +19,8 @@ data class Config(
 ) {
     fun validated(): ValidatedConfig {
         return ValidatedConfig(
-            inputPath = Path.of(inputPath).also { it.checkExistence("inputPath") },
+            inputPath = Path.of(inputPath.also { it.checkIfBlank("inputPath") })
+                .also { it.checkExistence("inputPath") },
             outputPath = Path.of(outputPath),
             traits = traits.map { it.validated() },
         )
@@ -40,9 +41,10 @@ data class TraitConfig(
 ) {
     fun validated(): ValidatedTraitConfig {
         return ValidatedTraitConfig(
-            name = TraitName(name).also { name.checkIfBlank("name") },
+            name = TraitName(name).also { name.checkIfBlank("trait name") },
             variants = variants.map { variant -> VariantName(variant)
-                .also { name.checkIfBlank("$name: $variant") } }
+                .also { it.toString().checkIfBlank("variant name for trait=$name") } }
+                .also { it.checkIfEmpty("variants of trait=$name") }
         )
     }
 
@@ -55,6 +57,7 @@ data class TraitConfig(
 private object Errors {
     private fun configError(text: String): Nothing = error("[Error] $text")
     fun blankPropError(propName: String): Nothing = configError("$propName is blank")
+    fun emptyListPropError(propName: String): Nothing = configError("$propName has no elements")
     fun pathNotExists(propName: String): Nothing = configError("Path is referenced by $propName is not exists")
 }
 
@@ -64,4 +67,8 @@ private fun Path.checkExistence(propName: String) {
 
 private fun String.checkIfBlank(propName: String) {
     if (this.isBlank()) Errors.blankPropError(propName)
+}
+
+private fun List<*>.checkIfEmpty(propName: String) {
+    if (this.isEmpty()) Errors.emptyListPropError(propName)
 }

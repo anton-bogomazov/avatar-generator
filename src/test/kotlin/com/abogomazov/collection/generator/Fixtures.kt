@@ -1,6 +1,8 @@
 package com.abogomazov.collection.generator
 
 import com.abogomazov.collection.generator.adapter.korim.KorimBitmap
+import com.abogomazov.collection.generator.app.Config
+import com.abogomazov.collection.generator.app.TraitConfig
 import com.abogomazov.collection.generator.domain.VariantName
 import com.abogomazov.collection.generator.domain.Trait
 import com.abogomazov.collection.generator.domain.TraitName
@@ -36,3 +38,21 @@ fun traitImportInfo(
     vararg traitNames: String,
     variants: List<String> = listOf("variant1", "variant2")
 ) = traitNames.map { TraitImportInfo(TraitName(it), variants.map { VariantName(it) }) }
+
+fun validConfig(
+    inputPath: String = "input",
+    outputPath: String = "output",
+    traits: List<TraitConfig> = listOf(validTraitConfig()),
+) = Config(
+    inputPath = inputPath,
+    outputPath = outputPath,
+    traits = traits,
+)
+
+fun validTraitConfig(
+    name: String = "trait",
+    variants: List<String> = listOf("first", "second")
+) = TraitConfig(
+    name = name,
+    variants = variants,
+)
