@@ -2,6 +2,7 @@ package com.abogomazov.collection.generator
 
 import java.awt.image.BufferedImage
 
+@Suppress("ReturnCount")
 fun BufferedImage.compareImages(other: BufferedImage): Boolean {
     if (this.width != other.width || this.height != other.height) {
         return false

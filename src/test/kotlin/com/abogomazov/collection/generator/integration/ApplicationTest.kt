@@ -13,19 +13,19 @@ import kotlin.io.path.Path
 
 class ApplicationTest : StringSpec({
 
-    val RESOURCES = "src/test/resources"
+    val resourcesPath = "src/test/resources"
 
     "happy path - 2 images successfully generated" {
-        main(arrayOf("$RESOURCES/config.json"))
+        main(arrayOf("$resourcesPath/config.json"))
 
-        val resultPath = Files.list(Path("$RESOURCES/results"))
+        val resultPath = Files.list(Path("$resourcesPath/results"))
         for (file in resultPath) {
             file.fileName.toString() shouldBeIn listOf(
                 "first-form_yellow-square-second-form_green-triangle.PNG",
                 "first-form_yellow-square-second-form_red-circle.PNG")
         }
         val image = ImageIO.read(
-            Path("$RESOURCES/results/first-form_yellow-square-second-form_red-circle.PNG").toFile())
+            Path("$resourcesPath/results/first-form_yellow-square-second-form_red-circle.PNG").toFile())
 
         // about the numbers https://stackoverflow.com/questions/25761438/understanding-bufferedimage-getrgb-output-values
 
@@ -37,14 +37,14 @@ class ApplicationTest : StringSpec({
         // transparent background here
         image.getRGB(5, 5) shouldBe 0
 
-        Files.deleteIfExists(Path("$RESOURCES/results/first-form_yellow-square-second-form_green-triangle.PNG"))
-        Files.deleteIfExists(Path("$RESOURCES/results/first-form_yellow-square-second-form_red-circle.PNG"))
-        Files.deleteIfExists(Path("$RESOURCES/results"))
+        Files.deleteIfExists(Path("$resourcesPath/results/first-form_yellow-square-second-form_green-triangle.PNG"))
+        Files.deleteIfExists(Path("$resourcesPath/results/first-form_yellow-square-second-form_red-circle.PNG"))
+        Files.deleteIfExists(Path("$resourcesPath/results"))
     }
 
     "throw error and stop generation if variant source is not existing" {
         shouldThrow<IllegalStateException> {
-            main(arrayOf("$RESOURCES/not-existing-variants-config.json"))
+            main(arrayOf("$resourcesPath/not-existing-variants-config.json"))
         }.message shouldBe "[IO ERROR] src/test/resources/images/not-exists.PNG is not exists"
     }
 

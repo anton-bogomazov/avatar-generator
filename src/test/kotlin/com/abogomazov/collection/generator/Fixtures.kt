@@ -1,8 +1,13 @@
 package com.abogomazov.collection.generator
 
 import com.abogomazov.collection.generator.adapter.korim.KorimBitmap
-import com.abogomazov.collection.generator.app.TraitConfig
-import com.abogomazov.collection.generator.domain.*
+import com.abogomazov.collection.generator.domain.VariantName
+import com.abogomazov.collection.generator.domain.Trait
+import com.abogomazov.collection.generator.domain.TraitName
+import com.abogomazov.collection.generator.domain.TraitVariant
+import com.abogomazov.collection.generator.domain.GeneratedImageName
+import com.abogomazov.collection.generator.domain.GeneratedImage
+import com.abogomazov.collection.generator.domain.TraitImportInfo
 import korlibs.image.color.toRgba
 import java.awt.Color
 import java.awt.image.BufferedImage

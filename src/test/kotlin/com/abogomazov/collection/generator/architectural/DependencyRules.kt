@@ -15,12 +15,12 @@ import com.tngtech.archunit.library.Architectures.onionArchitecture
 
 class DependencyRules : StringSpec({
 
-    val PROJECT_ROOT = "com.abogomazov.collection.generator"
+    val projectRoot = "com.abogomazov.collection.generator"
 
     "hexagonal architecture is implemented" {
         val classes = ClassFileImporter()
             .withImportOption(DoNotIncludeTests())
-            .importPackages(PROJECT_ROOT)
+            .importPackages(projectRoot)
 
         onionArchitecture()
             .domainModels("..domain..")
