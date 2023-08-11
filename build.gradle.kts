@@ -1,11 +1,17 @@
 plugins {
+    application
     kotlin("jvm") version "1.8.21"
     kotlin("plugin.serialization") version "1.8.21"
     id("io.gitlab.arturbosch.detekt") version "1.23.1"
+
 }
 
 group = "com.abogomazov"
 version = "1.0-SNAPSHOT"
+
+application {
+    mainClass.set("com.abogomazov.collection.generator.app.AppKt")
+}
 
 repositories {
     mavenCentral()
