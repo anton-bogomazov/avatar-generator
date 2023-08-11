@@ -20,7 +20,7 @@ data class Config(
     fun validated(): ValidatedConfig {
         return ValidatedConfig(
             inputPath = Path.of(inputPath).also { it.checkExistence("inputPath") },
-            outputPath = Path.of(outputPath).also { it.checkExistence("outputPath") },
+            outputPath = Path.of(outputPath),
             traits = traits.map { it.validated() },
         )
     }
@@ -35,14 +35,14 @@ data class Config(
 
 @Serializable
 data class TraitConfig(
-    val traitName: String,
+    val name: String,
     val variants: List<String>
 ) {
     fun validated(): ValidatedTraitConfig {
         return ValidatedTraitConfig(
-            name = TraitName(traitName).also { traitName.checkIfBlank("name") },
+            name = TraitName(name).also { name.checkIfBlank("name") },
             variants = variants.map { variant -> VariantName(variant)
-                .also { traitName.checkIfBlank("$traitName: $variant") } }
+                .also { name.checkIfBlank("$name: $variant") } }
         )
     }
 

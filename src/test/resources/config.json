@@ -1,0 +1,14 @@
+{
+  "inputPath": "src/test/resources/images",
+  "outputPath": "src/test/resources/results",
+  "traits": [
+    {
+      "name": "first-form",
+      "variants": ["yellow-square"]
+    },
+    {
+      "name": "second-form",
+      "variants": ["red-circle", "green-triangle"]
+    }
+  ]
+}
