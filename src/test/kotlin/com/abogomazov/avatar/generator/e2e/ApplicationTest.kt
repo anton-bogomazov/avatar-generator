@@ -1,4 +1,4 @@
-package com.abogomazov.avatar.generator.integration
+package com.abogomazov.avatar.generator.e2e
 
 import com.abogomazov.avatar.generator.app.main
 import io.kotest.assertions.throwables.shouldThrow
