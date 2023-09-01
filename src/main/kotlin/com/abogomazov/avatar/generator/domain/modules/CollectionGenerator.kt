@@ -10,12 +10,9 @@ object CollectionGenerator {
     fun generate(traits: List<Trait>): List<GeneratedImage> {
         if (traits.isEmpty()) return emptyList()
 
-        val firstTrait = traits.first()
-        var images = firstTrait.variants.map { variant ->
-            GeneratedImage(GeneratedImageName.of(firstTrait.name, variant.name), variant.image)
-        }
+        var images = initialImages(traits.first())
 
-        for (trait in (traits - firstTrait)) {
+        for (trait in (traits - traits.first())) {
             images = images.flatMap { image ->
                 trait.variants.map { variant ->
                     image.appendTrait(trait.name, variant)
@@ -25,5 +22,10 @@ object CollectionGenerator {
 
         return images
     }
+
+    private fun initialImages(initialTrait: Trait) =
+        initialTrait.variants.map { variant ->
+            GeneratedImage(GeneratedImageName.of(initialTrait.name, variant.name), variant.image)
+        }
 
 }
